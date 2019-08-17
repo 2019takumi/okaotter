@@ -1,0 +1,12 @@
+<div class="contents">
+  <h2>投稿する</h2>
+  <%= form_with(model: @tweet, class: 'clearfix') do |form|%>
+    <div>
+    <%= image_tag 'cat1.png' %>
+    <%= form.text_area :text, size: "10 x 10"%>
+    </div>
+    <div class="button-box">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

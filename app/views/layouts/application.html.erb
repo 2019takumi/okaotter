@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Okatter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="UTF-8" />
+    <title>ねこったー</title>
+  </head>
+
+  <body>
+  <header class="header" >
+    <div class="header__bar row">
+      <h1 class="grid-6"><a href="/">おかったー</a></h1>
+    </div>
+  </header>
+
+    <%= yield %>
+    
+  <footer class="footer">
+  <% if user_signed_in? %>
+        <div class="user_nav grid-6">
+          <span><%= current_user.nickname %>
+            <ul>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><a class = "mypage row" href="/users/<%= current_user.id %>">マイページ</a></li>
+              <li><a class="post" href="/tweets/new">投稿する</a></li>
+            </ul>
+          </span>
+        </div>
+      <% else %>
+        <div class="grid-6">
+          <ul>
+            <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+            <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+          </ul>
+        </div>
+      <% end %>
+  </footer>
+  </body>
+</html>

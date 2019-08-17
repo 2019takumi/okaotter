@@ -1,0 +1,13 @@
+<div class="contents row">
+    <%= form_with(model: @tweet, method: :patch ) do |form|%>
+      <h3>
+        編集する
+      </h3>
+      <div>
+      <%=form.text_area :text, size:"10 X 30"%>
+      </div>
+      <div class="button-box">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
